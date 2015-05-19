@@ -1,0 +1,17 @@
+@using TieStore.Web.Models
+@model Product[]
+
+@{
+    ViewBag.Title = "Tie Store Backoffice";
+}
+
+<h2>All current products</h2>
+<ul>
+	@foreach (var x in @Model) {
+		<li>
+			@x.ToString()
+		</li>
+ 	}
+</ul>
+
+ <a href="/BackOffice">Back</a>

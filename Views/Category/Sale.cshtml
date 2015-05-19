@@ -1,0 +1,22 @@
+@using TieStore.Web.Models
+@model Product[]
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+    string helloClass = null;
+}
+
+<h2>Sale products</h2>
+@foreach (var x in @Model) {
+	<div class="col-md-3 col-sm-4 col-xs-6" style="background-color: white; padding-bottom:2em;">
+		<h3 title="@x.Name" class="@helloClass"><a href="/Product/Id/@x.Id">@x.Name</a></h3>
+        @if (@x.OnSale) {
+            <p style="color: red;">On Sale! $@x.SalePrice</p>
+        }
+        @if (!@x.OnSale) {
+            <p>$@x.SalePrice</p>
+        }
+        <span>@x.Description</span>
+       
+	</div>
+ }

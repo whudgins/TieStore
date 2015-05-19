@@ -1,0 +1,10 @@
+{
+    "AppSettings": {
+        "SiteTitle": "Tie Store"
+    },
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Data Source=dev.db;"
+        }
+    }
+}

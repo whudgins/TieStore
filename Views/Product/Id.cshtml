@@ -1,0 +1,17 @@
+@using TieStore.Web.Models
+@model Product
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+    string helloClass = null;
+}
+
+    <h1 title="@Model.Name" class="@helloClass">@Model.Name</h1>
+    <p>@Model.Description</p>
+    @if (@Model.OnSale) {
+        <p><span style="text-decoration: line-through;">Price: $@Model.Price</span>&nbsp;<span style="color: red;">Sale Price: $@Model.SalePrice</span></p>
+        
+    }
+    @if (!@Model.OnSale) {
+        <p >Price: $@Model.SalePrice</p>
+    }
