@@ -32,18 +32,18 @@ namespace TieStore.Web
             return new HttpNotFoundResult();
         }
         
-        public List<ProductViewModel> GetCategoryById(int id)
+        public Array GetCategoryById(int id)
         {
             Category category = _dbContext.Categories.FirstOrDefault(c => c.Id == id);
             Array products = _dbContext.Products.Where(p => p.CategoryId == id).ToArray();
             if (products != null) {
-                return createProductViewModels(products, category);
+                return products;
             } else {
                 throw new Exception();
             }
         }
         
-                // GET: /Category/{id}
+        // GET: /Category/{id}
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Sale()
@@ -51,13 +51,13 @@ namespace TieStore.Web
             return View(_dbContext.Products.Where(p=> p.OnSale).ToArray());
         }
         
-        public List<ProductViewModel> createProductViewModels(Array products, Category c) {
-			List<ProductViewModel> viewModels = new List<ProductViewModel>();
-			foreach (Product product in products) {
-				var vm = new ProductViewModel(product, c);
-				viewModels .Add(vm);
-			}
-			return viewModels;
-		}
+//         public List<ProductViewModel> createProductViewModels(Array products, Category c) {
+// 			List<ProductViewModel> viewModels = new List<ProductViewModel>();
+// 			foreach (Product product in products) {
+// 				var vm = new ProductViewModel(product, c);
+// 				viewModels .Add(vm);
+// 			}
+// 			return viewModels;
+// 		}
     }
 }
