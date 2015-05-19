@@ -1,0 +1,14 @@
+{
+    "dependencies": {
+        "TieStore": "1.0.0-*",
+        "xunit": "2.1.0-*",
+        "xunit.runner.dnx": "2.1.0-*"
+    },
+    "frameworks": {
+        "aspnet50": { },
+        "aspnetcore50": { }
+    },
+    "commands": {
+        "test": "xunit.runner.dnx"
+    }
+}
