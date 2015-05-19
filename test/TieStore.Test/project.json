@@ -1,14 +1,27 @@
 {
+    "version": "1.0.0-*",
+    "description": "",
+    "authors": [ "" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
     "dependencies": {
         "TieStore": "1.0.0-*",
-        "xunit": "2.1.0-*",
-        "xunit.runner.dnx": "2.1.0-*"
-    },
-    "frameworks": {
-        "aspnet50": { },
-        "aspnetcore50": { }
+        "xunit": "2.1.0-beta2-*",
+        "xunit.runner.dnx": "2.1.0-beta2-*"
     },
     "commands": {
         "test": "xunit.runner.dnx"
+    },
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": {
+            "dependencies": {
+                "System.Collections": "4.0.10-*",
+                "System.Linq": "4.0.0-*",
+                "System.Threading": "4.0.10-*",
+                "Microsoft.CSharp": "4.0.0-*"
+            }
+        }
     }
 }
