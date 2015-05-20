@@ -1,21 +1,29 @@
 using Xunit;
-using System;
-using System.Linq;
-using System.Collections.Generic;
+using TieStore.Web;
 using TieStore.Web.Models;
+using Microsoft.Framework.DependencyInjection;
 
 namespace TieStoreTests
 {
     public class HomeControllerTests
     {
+        ProductDbContext db;
+        HomeController hc;
+        IServiceCollection services;
+        
+        public HomeControllerTests() {
+            services.AddMvc();
+            services.AddEntityFramework().AddInMemoryStore().AddDbContext<ProductDbContext>();
+            db = new ProductDbContext();
+            hc = new HomeController(db);
+            hc.CreateProducts();
+        }
         
         [Fact]
-        public void PassingTest()
+        public void CategoryAssignment()
         {
-            Product p = new Product();
-            p.Price = 5;
-            p.SalePrice = 5;
-            Assert.False(p.OnSale);
+           var p = hc.GetProductById(16);
+           Assert.Null(p);
         }
     }
 }

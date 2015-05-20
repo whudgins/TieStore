@@ -5,15 +5,16 @@
     ViewBag.Title = "Home Page";
     string helloClass = null;
 }
+
+<h2>Sale products</h2>
 <div class="col-md-12 col-sm-12 col-xs-12" style="background-color: white; padding-bottom:2em; text-align: right;">
-    Sort by: &nbsp; <b>Name</b> &mdash; <a href="/Category/PriceAsc/@Model[0].CategoryId">Price Low-High</a> &mdash; <a href="/Category/PriceDesc/@Model[0].CategoryId">Price High-Low</a>
+    Sort by: &nbsp; <a href="/Category/Sale">Name</a> &mdash; <b>Price Low-High</b> &mdash; <a href="/Category/SaleDesc/">Price High-Low</a>
 </div>
-    
 @foreach (var x in @Model) {
 	<div class="col-md-3 col-sm-4 col-xs-6" style="background-color: white; padding-bottom:2em;">
 		<h3 title="@x.Name" class="@helloClass"><a href="/Product/Id/@x.Id">@x.Name</a></h3>
         @if (@x.OnSale) {
-            <p><span style="text-decoration: line-through;">Price: $@x.Price</span>&nbsp;<span style="color: red;">Sale Price: $@x.SalePrice</span></p>
+            <p style="color: red;">On Sale! $@x.SalePrice</p>
         }
         @if (!@x.OnSale) {
             <p>$@x.SalePrice</p>

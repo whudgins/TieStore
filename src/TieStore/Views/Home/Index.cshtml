@@ -6,36 +6,17 @@
     string helloClass = null;
 }
 
-<h2>Check out these products on sale:</h2>
-@for(var i = 1; i < 5; i++) {
+<h2>Spring 2015</h2>
+@foreach(var p in @Model) {
 	<div class="col-md-3 col-sm-4 col-xs-6" style="background-color: white; padding-bottom:2em;">
-		<h3 title="@Model[i].Name" class="@helloClass"><a href="/Product/Id/@Model[i].Id">@Model[i].Name</a></h3>
-        @if (@Model[i].OnSale) {
-            <p style="color: red;">On Sale! $@Model[i].SalePrice</p>
+		<h3 title="@p.Name" class="@helloClass"><a href="/Product/Id/@p.Id">@p.Name</a></h3>
+        @if (@p.OnSale) {
+            <p><span style="text-decoration: line-through;">$@p.Price</span>&nbsp;<span style="color: red;">On Sale! $@p.SalePrice</span></p>
         }
-        @if (!@Model[i].OnSale) {
-            <p>$@Model[i].SalePrice</p>
+        @if (!@p.OnSale) {
+            <p>$@p.SalePrice</p>
         }
-        <span>@Model[i].Description</span>
+        <span>@p.Description</span>
        
 	</div>
  }
- 
- <a href="/Category/Sale">See more...</a>
-     
- <h2>Check out these products on sale:</h2>
-@for(var i = 1; i < 5; i++) {
-	<div class="col-md-3 col-sm-4 col-xs-6" style="background-color: white; padding-bottom:2em;">
-		<h3 title="@Model[i].Name" class="@helloClass"><a href="/Product/Id/@Model[i].Id">@Model[i].Name</a></h3>
-        @if (@Model[i].OnSale) {
-            <p style="color: red;">On Sale! $@Model[i].SalePrice</p>
-        }
-        @if (!@Model[i].OnSale) {
-            <p>$@Model[i].SalePrice</p>
-        }
-        <span>@Model[i].Description</span>
-       
-	</div>
- }
- 
- <a href="/Category/Sale">See more...</a>

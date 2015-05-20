@@ -13,5 +13,13 @@ namespace TieStoreTests
             p.SalePrice = 5;
             Assert.False(p.OnSale);
         }
+        
+        [Fact]
+        public void CategoryAssignment()
+        {
+            Product p = new Product();
+            p.Name = "Tie";
+            Assert.Null(p.Name);
+        }
     }
 }

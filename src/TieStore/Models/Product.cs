@@ -23,9 +23,11 @@ namespace TieStore.Web.Models
         public double Price { get; set; }
 		public double SalePrice { get; set; }
         public bool OnSale { get { return !(Price == SalePrice);} }
+        
+        public bool Featured { get; set; }
        
         public override string ToString() {
-            return "Product:" + Id + ", " + Name + ", " + Description + ", Price $" + Price.ToString() + ", Sale Price $" + SalePrice.ToString() + ", On Sale? " + OnSale.ToString();
+            return "Product:" + Id + ", " + Name + ", " + Description + ", Price $" + Price.ToString() + ", Sale Price $" + SalePrice.ToString() + ", On Sale: " + OnSale.ToString() + ", Featured: " + Featured.ToString() ;
         }
     }
     
